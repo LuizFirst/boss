@@ -1,15 +1,29 @@
 using Boss.Core.Models;
-using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Boss.Core.ViewModels
 {
-    public partial class LicencaViewModel : ViewModelBase
+    public class LicencaViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Licenca> Licencas { get; set; } = new();
 
-        [ObservableProperty]
-        private string statusTexto = "Verificando...";
+        private string _statusTexto = "Verificando...";
+        public string StatusTexto
+        {
+            get => _statusTexto;
+            set
+            {
+                if (_statusTexto != value)
+                {
+                    _statusTexto = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public LicencaViewModel()
         {
@@ -44,6 +58,11 @@ namespace Boss.Core.ViewModels
             {
                 StatusTexto = "❌ Nenhuma licença ativa";
             }
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
