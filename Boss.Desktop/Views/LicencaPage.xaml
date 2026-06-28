@@ -56,18 +56,11 @@
                       ItemsSource="{Binding Licencas, Mode=OneWay}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Chave" DisplayMemberBinding="{Binding Chave}" Width="200"/>
+                        <GridViewColumn Header="Chave" DisplayMemberBinding="{Binding Chave}" Width="180"/>
                         <GridViewColumn Header="Tipo" DisplayMemberBinding="{Binding Tipo}" Width="100"/>
                         <GridViewColumn Header="Ativação" DisplayMemberBinding="{Binding DataAtivacao, StringFormat=dd/MM/yyyy}" Width="100"/>
                         <GridViewColumn Header="Expira" DisplayMemberBinding="{Binding DataExpiracao, StringFormat=dd/MM/yyyy}" Width="100"/>
-                        <GridViewColumn Header="Status" Width="80">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Ativa, StringFormat={0:F}, Converter={StaticResource BoolToStatusConverter}}" 
-                                               Foreground="{Binding Ativa, Converter={StaticResource BoolToColorConverter}}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Ativa}" Width="70"/>
                         <GridViewColumn Header="Ações" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
