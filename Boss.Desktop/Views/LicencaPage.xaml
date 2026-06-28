@@ -53,13 +53,44 @@
                       Height="300" 
                       Background="#1A1A1A" 
                       Foreground="White"
-                      ItemsSource="{Binding Licencas}">
+                      ItemsSource="{Binding Licencas, Mode=OneWay}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Chave" DisplayMemberBinding="{Binding Chave}" Width="280"/>
+                        <GridViewColumn Header="Chave" DisplayMemberBinding="{Binding Chave}" Width="200"/>
                         <GridViewColumn Header="Tipo" DisplayMemberBinding="{Binding Tipo}" Width="100"/>
-                        <GridViewColumn Header="Ativação" DisplayMemberBinding="{Binding DataAtivacao, StringFormat=dd/MM/yyyy}" Width="120"/>
-                        <GridViewColumn Header="Expira" DisplayMemberBinding="{Binding DataExpiracao, StringFormat=dd/MM/yyyy}" Width="120"/>
+                        <GridViewColumn Header="Ativação" DisplayMemberBinding="{Binding DataAtivacao, StringFormat=dd/MM/yyyy}" Width="100"/>
+                        <GridViewColumn Header="Expira" DisplayMemberBinding="{Binding DataExpiracao, StringFormat=dd/MM/yyyy}" Width="100"/>
+                        <GridViewColumn Header="Status" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ativa, StringFormat={0:F}, Converter={StaticResource BoolToStatusConverter}}" 
+                                               Foreground="{Binding Ativa, Converter={StaticResource BoolToColorConverter}}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Ações" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="5,0">
+                                        <Button Content="➕ +1M" 
+                                                Height="30" 
+                                                Padding="10,0"
+                                                Background="#FF6B6B" 
+                                                Foreground="White"
+                                                Margin="0,0,5,0"
+                                                Click="BtnAdicionarMes_Click"
+                                                Tag="{Binding Id}"/>
+                                        <Button Content="❌ Deletar" 
+                                                Height="30" 
+                                                Padding="10,0"
+                                                Background="#8B0000" 
+                                                Foreground="White"
+                                                Click="BtnDeletar_Click"
+                                                Tag="{Binding Id}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
