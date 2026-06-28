@@ -1,0 +1,12 @@
+D:\BOSS\Boss\Boss.Core\bin\Debug\net10.0\Boss.Core.deps.json
+D:\BOSS\Boss\Boss.Core\bin\Debug\net10.0\Boss.Core.dll
+D:\BOSS\Boss\Boss.Core\bin\Debug\net10.0\Boss.Core.pdb
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\Boss.Core.csproj.AssemblyReference.cache
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\Boss.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\Boss.Core.AssemblyInfoInputs.cache
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\Boss.Core.AssemblyInfo.cs
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\Boss.Core.csproj.CoreCompileInputs.cache
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\Boss.Core.dll
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\refint\Boss.Core.dll
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\Boss.Core.pdb
+D:\BOSS\Boss\Boss.Core\obj\Debug\net10.0\ref\Boss.Core.dll

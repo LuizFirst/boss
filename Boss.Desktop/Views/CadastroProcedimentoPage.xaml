@@ -1,0 +1,81 @@
+﻿<Page x:Class="Boss.Desktop.Views.CadastroProcedimentoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="900"
+      Background="Transparent"
+      Title="CadastroProcedimentoPage">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="20">
+        <StackPanel MaxWidth="850">
+            <TextBlock Text="Novo Procedimento" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="{StaticResource PrimaryColor}"/>
+
+            <Grid Margin="0,30,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0,0,30,0">
+                    <TextBlock Text="Marca *" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <ComboBox x:Name="cmbMarca" Height="42" FontSize="14" Margin="0,0,0,15">
+                        <ComboBoxItem>Samsung</ComboBoxItem>
+                        <ComboBoxItem>Xiaomi</ComboBoxItem>
+                        <ComboBoxItem>Motorola</ComboBoxItem>
+                        <ComboBoxItem>Apple</ComboBoxItem>
+                        <ComboBoxItem>Realme</ComboBoxItem>
+                        <ComboBoxItem>Oppo</ComboBoxItem>
+                        <ComboBoxItem>Huawei</ComboBoxItem>
+                    </ComboBox>
+
+                    <TextBlock Text="Tipo de Bloqueio *" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <ComboBox x:Name="cmbTipoBloqueio" Height="42" FontSize="14">
+                        <ComboBoxItem>Conta Google</ComboBoxItem>
+                        <ComboBoxItem>PayJoy</ComboBoxItem>
+                        <ComboBoxItem>Conta Mi</ComboBoxItem>
+                        <ComboBoxItem>MDM</ComboBoxItem>
+                        <ComboBoxItem>Outros</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Modelo *" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtModelo" Height="42" FontSize="14" Margin="0,0,0,15"/>
+
+                    <TextBlock Text="Número do Modelo" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtNumeroModelo" Height="42" FontSize="14"/>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Procedimento *" Margin="0,25,0,8" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtProcedimento" Height="220" FontSize="14" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+
+            <TextBlock Text="Observações" Margin="0,20,0,8" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtObservacoes" Height="100" FontSize="14" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+            <!-- Botões -->
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                <Button Content="SALVAR PROCEDIMENTO" 
+                        Height="48" 
+                        Width="220" 
+                        Background="{StaticResource PrimaryColor}" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        FontSize="14"
+                        Click="BtnSalvar_Click"/>
+
+                <Button Content="CANCELAR" 
+                        Height="48" 
+                        Width="140" 
+                        Margin="15,0,0,0" 
+                        Background="Transparent" 
+                        Foreground="#AAAAAA"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

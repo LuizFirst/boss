@@ -1,0 +1,15 @@
+D:\BOSS\Boss\Boss.Infrastructure\bin\Debug\net10.0\Boss.Infrastructure.deps.json
+D:\BOSS\Boss\Boss.Infrastructure\bin\Debug\net10.0\Boss.Infrastructure.dll
+D:\BOSS\Boss\Boss.Infrastructure\bin\Debug\net10.0\Boss.Infrastructure.pdb
+D:\BOSS\Boss\Boss.Infrastructure\bin\Debug\net10.0\Boss.Core.dll
+D:\BOSS\Boss\Boss.Infrastructure\bin\Debug\net10.0\Boss.Core.pdb
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Infrastructure.csproj.AssemblyReference.cache
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Infrastructure.AssemblyInfoInputs.cache
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Infrastructure.AssemblyInfo.cs
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Infrastructure.csproj.CoreCompileInputs.cache
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Inf.6A37E8D5.Up2Date
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Infrastructure.dll
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\refint\Boss.Infrastructure.dll
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\Boss.Infrastructure.pdb
+D:\BOSS\Boss\Boss.Infrastructure\obj\Debug\net10.0\ref\Boss.Infrastructure.dll

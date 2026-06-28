@@ -1,0 +1,60 @@
+﻿<Window x:Class="Boss.Desktop.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Boss - Login" 
+        Height="520" Width="420"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource DarkBackground}"
+        Foreground="{StaticResource TextPrimary}">
+
+    <Grid Margin="30">
+        <StackPanel VerticalAlignment="Center">
+
+            <!-- Logo / Título -->
+            <TextBlock Text="BOSS" 
+                       FontSize="48" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource PrimaryColor}"/>
+
+            <TextBlock Text="Gerenciador de Desbloqueios" 
+                       FontSize="16" 
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,40"
+                       Foreground="{StaticResource TextSecondary}"/>
+
+            <!-- Campos -->
+            <TextBlock Text="Login" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtLogin" Height="40" FontSize="14" Padding="10"/>
+
+            <TextBlock Text="Senha" Margin="0,20,0,5"/>
+            <PasswordBox x:Name="txtSenha" Height="40" FontSize="14" Padding="10"/>
+
+            <!-- Botão Entrar -->
+            <Button Content="ENTRAR" 
+                    Height="45" 
+                    Margin="0,30,0,0"
+                    Background="{StaticResource PrimaryColor}"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="14"
+                    Click="BtnLogin_Click"/>
+
+            <Button Content="FECHAR" 
+                    Height="35" 
+                    Margin="0,10,0,0"
+                    Background="Transparent"
+                    Foreground="#AAAAAA"
+                    Click="BtnFechar_Click"/>
+
+        </StackPanel>
+
+        <!-- Rodapé com data/hora -->
+        <TextBlock x:Name="txtDataHora" 
+                   VerticalAlignment="Bottom" 
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextSecondary}"
+                   FontSize="12"/>
+    </Grid>
+</Window>
