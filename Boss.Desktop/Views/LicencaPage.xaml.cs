@@ -1,40 +1,52 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using Boss.Core.Models;
+using Boss.Core.ViewModels;
 using Boss.Infrastructure.Repositories;
-using System.Collections.ObjectModel;
 
 namespace Boss.Desktop.Views
 {
     public partial class LicencaPage : Page
     {
         private readonly LicencaRepository _repository = new();
-        public ObservableCollection<Licenca> Licencas { get; set; } = new();
+        private readonly LicencaViewModel _viewModel;
 
         public LicencaPage()
         {
             InitializeComponent();
-            lvLicencas.ItemsSource = Licencas;
-            CarregarTudo();
+            
+            // Criar e definir o ViewModel
+            _viewModel = new LicencaViewModel();
+            DataContext = _viewModel;
+            
+            // Carregar licenças do banco
+            CarregarLicencasDoRepositorio();
         }
 
-        private void CarregarTudo()
+        private void CarregarLicencasDoRepositorio()
         {
-            var licenca = _repository.ObterLicencaAtiva();
-
-            // Status
-            txtStatus.Text = licenca != null && licenca.Ativa
-                ? $"✅ Licença Ativa - {licenca.Tipo}"
-                : "❌ Nenhuma licença ativa";
-
-            // Lista
-            Licencas.Clear();
-            if (licenca != null)
+            try
             {
-                Licencas.Add(licenca);
+                var licenca = _repository.ObterLicencaAtiva();
+
+                _viewModel.Licencas.Clear();
+                
+                if (licenca != null)
+                {
+                    _viewModel.Licencas.Add(licenca);
+                    _viewModel.StatusTexto = $"✅ Licença Ativa - {licenca.Tipo}";
+                }
+                else
+                {
+                    _viewModel.StatusTexto = "❌ Nenhuma licença ativa";
+                }
             }
-            lvLicencas.Items.Refresh();
+            catch (Exception ex)
+            {
+                _viewModel.StatusTexto = "❌ Erro ao carregar licenças";
+                MessageBox.Show("Erro ao carregar licenças: " + ex.Message);
+            }
         }
 
         private void BtnAtivar_Click(object sender, RoutedEventArgs e)
@@ -57,16 +69,26 @@ namespace Boss.Desktop.Views
                     DataAtivacao = DateTime.Now
                 };
 
-                if (tipoSelecionado.Contains("Mês"))
+                // Calcular data de expiração conforme o tipo
+                if (tipoSelecionado == "1 Mês")
                     licenca.DataExpiracao = DateTime.Now.AddMonths(1);
-                else if (tipoSelecionado.Contains("Ano"))
+                else if (tipoSelecionado == "3 Meses")
+                    licenca.DataExpiracao = DateTime.Now.AddMonths(3);
+                else if (tipoSelecionado == "6 Meses")
+                    licenca.DataExpiracao = DateTime.Now.AddMonths(6);
+                else if (tipoSelecionado == "1 Ano")
                     licenca.DataExpiracao = DateTime.Now.AddYears(1);
 
+                // Salvar no banco
                 _repository.Adicionar(licenca);
+
+                // ✅ ADICIONAR À COLEÇÃO (vai atualizar a UI automaticamente)
+                _viewModel.Licencas.Add(licenca);
+                _viewModel.StatusTexto = $"✅ Licença Ativa - {licenca.Tipo}";
 
                 MessageBox.Show($"Licença {tipoSelecionado} ativada com sucesso!", "Sucesso");
                 txtChave.Clear();
-                CarregarTudo();
+                cmbTipo.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
